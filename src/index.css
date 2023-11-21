@@ -7,3 +7,10 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+main {
+  max-width: 1280px;
+  min-height: 85vh;
+  margin: auto;
+  padding: 1rem;
+}
