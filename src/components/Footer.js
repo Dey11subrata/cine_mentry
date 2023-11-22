@@ -14,17 +14,29 @@ export const Footer = () => {
         </span>
         <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
           <li>
-            <a href="#" className="hover:underline me-4 md:me-6">
+            <a
+              href="https://github.com/Dey11subrata"
+              target="_blank"
+              className="hover:underline me-4 md:me-6"
+            >
               GitHub
             </a>
           </li>
           <li>
-            <a href="#" className="hover:underline me-4 md:me-6">
+            <a
+              href="https://www.linkedin.com/in/subrata-dey-4653881a4/"
+              target="_blank"
+              className="hover:underline me-4 md:me-6"
+            >
               LinkedIn
             </a>
           </li>
           <li>
-            <a href="#" className="hover:underline me-4 md:me-6">
+            <a
+              href="mailto:deysubrata2311@gmail.com"
+              target="_blank"
+              className="hover:underline me-4 md:me-6"
+            >
               Email
             </a>
           </li>
