@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import Logo from "../assets/logo.png";
@@ -19,6 +19,19 @@ export const Header = () => {
    */
   const [hidden, setHidden] = useState(true);
 
+  /*
+   * storing state of dark mode in a state variable this state will be togelled by clicking svg icon.
+   * on every toggle dynamically addding "dark" in class of html tag in our root document.
+   * using useEffect hook to achieve this functionality
+   */
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    darkMode
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
+  }, [darkMode]);
+
   return (
     <header>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -32,7 +45,50 @@ export const Header = () => {
               CineMentry
             </span>
           </Link>
-          <div className="flex md:order-2">
+          <div id="mobile-nav" className="flex md:order-2">
+            {/* dark mode button -> */}
+            <button
+              id="dark-mode-btn"
+              onClick={() => setDarkMode(!darkMode)}
+              type="button"
+              data-collapse-toggle="navbar-search"
+              aria-controls="navbar-search"
+              aria-expanded="false"
+              className="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
+              {darkMode ? (
+                <svg
+                  class="w-4 h-4 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 3V1m0 18v-2M5.05 5.05 3.636 3.636m12.728 12.728L14.95 14.95M3 10H1m18 0h-2M5.05 14.95l-1.414 1.414M16.364 3.636 14.95 5.05M14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  class="w-4 h-4 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 18 20"
+                >
+                  <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z" />
+                </svg>
+              )}
+
+              <span className="sr-only">Dark Mode</span>
+            </button>
+            {/* <-  dark mode button */}
+
+            {/* search icon on mobile screen -> */}
             <button
               onClick={() => setHidden(!hidden)}
               type="button"
@@ -58,6 +114,9 @@ export const Header = () => {
               </svg>
               <span className="sr-only">Search</span>
             </button>
+            {/* <- search icon on mobile screen */}
+
+            {/* search bar it will be hidden in mobile view -> */}
             <div className="relative hidden md:block">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg
@@ -85,6 +144,8 @@ export const Header = () => {
                 autoComplete="off"
               />
             </div>
+
+            {/* <- search bar it will be hidden in mobile view */}
 
             {/*
              * This button below is the menu button in small screen.
