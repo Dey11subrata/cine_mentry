@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const useFetch = (apiPath) => {
-  const url = `https://api.themoviedb.org/3/${apiPath}?api_key=${process.env.REACT_APP_API_KEY}`;
+export const useFetch = (apiPath, queryParam = "") => {
+  const url = `https://api.themoviedb.org/3/${apiPath}?api_key=${process.env.REACT_APP_API_KEY}&query=${queryParam}`;
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchMovies() {
