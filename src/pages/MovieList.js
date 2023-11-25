@@ -5,7 +5,7 @@ export const MovieList = ({ apiPath, title }) => {
   // const [movieList, setMovieList] = useState([]);
 
   const { data: movieList } = useFetch(apiPath);
-  const pageTitle = useTitle(title);
+  useTitle(title);
   return (
     <main>
       <section className="max-w-7xl mx-auto py-7">

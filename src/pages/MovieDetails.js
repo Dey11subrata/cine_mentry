@@ -5,7 +5,7 @@ import { useTitle } from "../hooks/useTitle";
 
 import backup from "../assets/backup.jpg";
 
-export const MovieDetails = ({}) => {
+export const MovieDetails = () => {
   const params = useParams();
   console.log(params);
   const [movie, setMovie] = useState({});
@@ -19,8 +19,8 @@ export const MovieDetails = ({}) => {
       setMovie(jsonData);
     }
     fetchMovieDetails();
-  }, []);
-  const pageTitle = useTitle(movie.title);
+  }, [params.id]);
+  useTitle(movie.title);
   const poster = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     : backup;
