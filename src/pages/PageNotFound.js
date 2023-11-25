@@ -13,7 +13,7 @@ export const PageNotFound = () => {
         <div className="flex justify-center flex-col items-center font-medium text-slate-700 dark:text-white my-10">
           <p className="text-3xl">404, Oops!</p>
           <p className="text-2xl">Sorry Page Not Found</p>
-          <img className="mt-4" src={pageNotFound} alt="page not found image" />
+          <img className="mt-4" src={pageNotFound} alt="page not found" />
         </div>
         <div className="flex justify-center ">
           <Link to="/">
