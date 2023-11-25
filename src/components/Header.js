@@ -42,6 +42,7 @@ export const Header = () => {
       event.target.reset();
       return navigate(`/search?q=${searchValue}`);
     }
+
   };
 
   return (
