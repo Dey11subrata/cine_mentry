@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import pageNotFound from "../assets/pageNotFound.jpg";
 import { Button } from "../components";
+import { useEffect } from "react";
 
 export const PageNotFound = () => {
+  useEffect(() => {
+    document.title = "Page Not Found / CineMentry";
+  });
   return (
     <main>
       <section className="flex justify-center flex-col mx-4">
