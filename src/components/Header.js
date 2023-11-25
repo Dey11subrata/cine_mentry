@@ -38,8 +38,10 @@ export const Header = () => {
     event.preventDefault();
     const searchValue = event.target.search.value;
     console.log(searchValue);
-    event.target.reset();
-    return navigate(`/search?q=${searchValue}`);
+    if (searchValue.length !== 0) {
+      event.target.reset();
+      return navigate(`/search?q=${searchValue}`);
+    }
   };
 
   return (
