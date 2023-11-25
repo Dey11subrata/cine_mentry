@@ -3,7 +3,7 @@ import { MovieDetails, MovieList, PageNotFound, Search } from "../pages";
 
 export const AllRoutes = () => {
   return (
-    <div className="dark:bg-slate-800">
+    <div className="dark:bg-darkbg">
       <Routes>
         <Route path="/" element={<MovieList apiPath="movie/now_playing" />} />
         <Route
