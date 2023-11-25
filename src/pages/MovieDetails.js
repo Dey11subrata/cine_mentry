@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";
+import { useTitle } from "../hooks/useTitle";
 
 import backup from "../assets/backup.jpg";
-export const MovieDetails = ({ apiPath }) => {
+
+export const MovieDetails = ({}) => {
   const params = useParams();
   console.log(params);
   const [movie, setMovie] = useState({});
@@ -18,6 +20,7 @@ export const MovieDetails = ({ apiPath }) => {
     }
     fetchMovieDetails();
   }, []);
+  const pageTitle = useTitle(movie.title);
   const poster = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     : backup;
