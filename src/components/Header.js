@@ -43,6 +43,7 @@ export const Header = () => {
     console.log(searchValue);
     if (searchValue.length !== 0) {
       event.target.reset();
+      setHidden(!hidden);
       return navigate(`/search?q=${searchValue}`);
     }
   };
