@@ -24,9 +24,12 @@ export const Header = () => {
    * on every toggle dynamically addding "dark" in class of html tag in our root document.
    * using useEffect hook to achieve this functionality
    */
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem("darkMode")) || false
+  );
 
   useEffect(() => {
+    JSON.stringify(localStorage.setItem("darkMode", darkMode));
     darkMode
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
