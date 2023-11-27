@@ -1,13 +1,18 @@
+import { useEffect, useState } from "react";
+
 import { useParams } from "react-router-dom";
 
-import { useEffect, useState } from "react";
 import { useTitle } from "../hooks/useTitle";
 
 import backup from "../assets/backup.jpg";
 
 export const MovieDetails = () => {
+  /*
+   * on the basis of movie id details about it can be loaded.
+   * from movie card id is appended in the url. From url this (id) information is taken out.
+   */
   const params = useParams();
-  console.log(params);
+  // console.log(params);
   const [movie, setMovie] = useState({});
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -15,12 +20,13 @@ export const MovieDetails = () => {
         `https://api.themoviedb.org/3/movie/${params.id}?api_key=1bc4184f5cc98dd17a601b55f914e680`
       );
       const jsonData = await response.json();
-      console.log(jsonData);
+      // console.log(jsonData);
       setMovie(jsonData);
     }
     fetchMovieDetails();
   }, [params.id]);
   useTitle(movie.title);
+  // console.log(movie);
   const poster = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     : backup;
