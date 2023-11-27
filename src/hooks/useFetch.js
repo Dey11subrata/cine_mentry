@@ -11,7 +11,7 @@ export const useFetch = (apiPath, queryParam = "") => {
 
       setData(jsonData.results);
 
-      console.log(jsonData);
+      // console.log(jsonData);
     }
     fetchMovies();
   }, [url]);
